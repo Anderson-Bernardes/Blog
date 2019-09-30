@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blog</title>
+    <title><%= preenche_titulo(yield(:titulo)) %>></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+  <%= link_to "Blog", "#", id: "logo" %>
+  <p>
+  <ul>
+    <li><%=  link_to "Index", home_index_path%></li>
+    <li><%=  link_to "Help", home_help_path%></li>
+  </ul>
+  </p>
+  <%= yield %>
   </body>
 </html>
