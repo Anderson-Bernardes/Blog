@@ -10,8 +10,12 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
 
-    @post.save
-    redirect_to @post
+    if @post.save
+      redirect_to posts_path,
+                  notice: 'Post was sucessfully created !'
+    else
+      render :new
+    end
   end
 
   def index
@@ -24,14 +28,23 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to @post
+    if @post.update(post_params)
+      redirect_to posts_path,
+                  notice: 'Post was sucessfully update !'
+    else
+      render :edit
+    end
   end
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to posts_path
+    if @post.destroy
+      redirect_to posts_path,
+                  notice: 'Post was sucessfully removed !'
+    else
+      redirect_to posts_path,
+                  alert: 'Fail to remove post !'
+    end
   end
 
   private

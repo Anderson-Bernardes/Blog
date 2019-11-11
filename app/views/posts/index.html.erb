@@ -1,6 +1,16 @@
 <%= provide :titulo, "Posts"%>
  <div class ="table-responsive-md">
    <h2 >Posts </h2 >
+   <%if flash[:notice]%>
+      <div id=" notice " class =" alert alert-success " role ="alert">
+    <%= flash[:notice]%>
+    </div >
+      <% end %>
+    <%if flash[:alert]%>
+      <div id=" alert " class =" alert alert - danger " role ="alert">
+    <%= flash[:alert]%>
+    </div >
+     <% end %>
    <table class =" table table-bordered ">
    <thead class ="thead-light ">
  <tr >
@@ -13,8 +23,8 @@
    <tbody >
  <%@posts.each do | post | %>
  <tr >
- <td > <%= post . title %> </td >
-<td > <%= post . body %> </td >
+ <td > <%= post.title %> </td >
+<td > <%= post.body %> </td >
      <td > <%= link_to 'Show', post , class: 'btn btn-info'%>
  <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-warning'%>
      <%=link_to 'Delete', post, method: :delete , data:{confirm:'Tem certeza ?' }, class:'btn btn-danger'%> </td>
