@@ -1,4 +1,13 @@
 source 'https://rubygems.org'
+# Use o sqlite3 como banco de dados de desenvolvimento e teste.
+ group :development, :test do
+ gem 'sqlite3'
+ end
+# Use o PostgreeSQL como banco de dados de producao.
+ group :production do
+   gem 'pg'
+   end
+
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
@@ -6,7 +15,7 @@ ruby '2.6.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+#gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
