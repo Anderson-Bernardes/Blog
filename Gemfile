@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 # Use o sqlite3 como banco de dados de desenvolvimento e teste.
  group :development, :test do
- gem 'sqlite3'
+  gem 'sqlite3'
  end
 # Use o PostgreeSQL como banco de dados de producao.
  group :production do
    gem 'pg'
-   end
+ end
 
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
